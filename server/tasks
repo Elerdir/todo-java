@@ -1,0 +1,8 @@
+1. vyřešit security s tokeny
+2. registrace
+3. přihlášení
+4. odhlášení
+5. rest api pro založení todo záznamu
+6. rest api pro editaci a změnu todo záznamu
+7. rest api pro smazání todo záznamu
+8. rest api pro získání seznamu todo úkolů pro uživatele/ všichni
