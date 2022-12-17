@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {deleteStudent, getAllStudents} from "./client";
+import {deleteStudent, getAllStudents, getAllTodos} from "./client";
 import './App.css';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const [showDrawer, setShowDrawer] = useState(false);
 
   const fetchStudents = () =>
-      getAllStudents()
+      getAllTodos()
           .then(res => res.json())
           .then(data => {
             console.log(data);
@@ -18,7 +18,7 @@ function App() {
         console.log(err.response);
         err.response.json().then(res => {
           console.log(res);
-          errorNotification("nastala chybka", `${res.message} [${res.status}]`);
+          //errorNotification("nastala chybka", `${res.message} [${res.status}]`);
         });
       }).finally(() => setFetching(false));
 
