@@ -1,20 +1,30 @@
 package cz.kappega.todo.server.todo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/todos")
+@AllArgsConstructor
 public class TodoController {
+
+    private final TodoService todoService;
 
     @GetMapping
     public List<Todo> getAllTodos() {
-        return Arrays.asList(
-                new Todo(1L, "projít se")
-        );
+        return todoService.getAllTodos();
+    }
+
+    @PostMapping
+    public void addTodo(@RequestBody Todo todo) {
+        todoService.addTodo(todo);
+    }
+
+    @DeleteMapping(path = "{todoId}")
+    public void deleteTodo(
+            @PathVariable("todoId") Long todoId) {
+        todoService.deleteTodo(todoId);
     }
 }
