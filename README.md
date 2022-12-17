@@ -7,6 +7,7 @@ In terminal:
 docker network create todo-java-db
 
 create a folder to mount /var/lib/postgresql/data
+
 cd into that folder
 
 MAC LINUX Users
