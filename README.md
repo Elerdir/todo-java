@@ -6,9 +6,9 @@ download from their web :-)
 In terminal:
 docker network create todo-java-db
 
-1 - create a folder to mount /var/lib/postgresql/data
-2 - cd into that folder
-3 - 
+create a folder to mount /var/lib/postgresql/data
+cd into that folder
+
 MAC LINUX Users
 docker run --name todo-java-db -p 5433:5432 --network=todo-java-db -v "$PWD:/var/lib/postgresql/data" -e POSTGRES_PASSWORD=password -d postgres:alpine
 
