@@ -31,3 +31,10 @@ docker run -it --rm --network=todo-java-db postgres:alpine psql -h todo-java-db 
 create database todo_java_db;
 
 \q
+
+
+NPM
+
+You can use npm ci to perform a clean install.
+
+Internally, It will wipe out node_modules and install all packages again. But it is faster than npm install if you already have your package.lock.json
