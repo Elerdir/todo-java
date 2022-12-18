@@ -27,4 +27,10 @@ public class TodoController {
             @PathVariable("todoId") Long todoId) {
         todoService.deleteTodo(todoId);
     }
+
+    @PatchMapping(path = "{todoId}")
+    public void updateTodo(@PathVariable("todoId") Long todoId,
+                              @RequestBody Todo todo) {
+        todoService.updateTodo(todoId, todo);
+    }
 }
