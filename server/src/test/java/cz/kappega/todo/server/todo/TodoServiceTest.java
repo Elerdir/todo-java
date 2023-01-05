@@ -87,6 +87,7 @@ class TodoServiceTest {
         verify(todoRepository, never()).deleteById(any());
     }
 
+// todo: zjistit, jestli test testuje co má
     @Test
     void canUpdateTodo() {
         // given
