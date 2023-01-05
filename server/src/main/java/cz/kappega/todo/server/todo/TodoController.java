@@ -28,7 +28,6 @@ public class TodoController {
         todoService.deleteTodo(todoId);
     }
 
-// todo: zjistit, jestli test testuje co má
     @PatchMapping(path = "{todoId}")
     public void updateTodo(@PathVariable("todoId") Long todoId,
                               @RequestBody Todo todo) {
