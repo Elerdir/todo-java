@@ -86,4 +86,19 @@ class TodoServiceTest {
 
         verify(todoRepository, never()).deleteById(any());
     }
+
+// todo: zjistit, jestli test testuje co má
+    @Test
+    void canUpdateTodo() {
+        // given
+        long todoId = 1;
+        given(todoRepository.existsById(todoId)).willReturn(true);
+        Todo todo = todoRepository.getById(todoId);
+
+        // when
+        underTest.updateTodo(todoId, todo);
+
+        // then
+        verify(todoRepository).findById(todoId);
+    }
 }
