@@ -24,7 +24,7 @@ export const addNewTodo = todo =>
         }
     ).then(checkStatus)
 
-// export const deleteStudent = studentId =>
-//     fetch(`api/v1/students/${studentId}`, {
-//         method: 'DELETE'
-//     }).then(checkStatus);
+export const deleteTodo = todoId =>
+    fetch(`api/v1/todos/${todoId}`, {
+        method: 'DELETE'
+    }).then(checkStatus);

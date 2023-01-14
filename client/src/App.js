@@ -61,9 +61,9 @@ function App() {
                     return <div>
                         {/* <TodoCard id={t.id} todo={t.todo} done={t.done}/> */}
                         <TodoCard {...t}>
-                            {/*<Button variant="outlined" startIcon={<DeleteIcon />}>*/}
-                            {/*    Delete*/}
-                            {/*</Button>*/}
+                            <Button variant="outlined" startIcon={<DeleteIcon />}>
+                                Delete
+                            </Button>
                         </TodoCard>
                         <br/>
                     </div>
@@ -71,26 +71,6 @@ function App() {
             </div>
         </Container>
     )
-
-
-  // return (
-  //     <div>
-  //       <h1>Number of todos: {todos.length}</h1>
-  //       <ul>
-  //         {todos.map(t => <li> {t.id} {t.text} {t.createdAt} </li>)}
-  //       </ul>
-  //     </div>
-  // )
-
-  // return todos.map((todo, index) => {
-  //   return (
-  //       <div>
-  //         <h1>List of todos:</h1>
-  //         <p key={index}>{todo.text} {todo.createdAt}</p>
-  //       </div>
-  //
-  //   )
-  // });
 }
 
 export default App;

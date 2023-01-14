@@ -2,6 +2,7 @@ import {Drawer, Input, Col, Select, Form, Row, Button, Spin} from 'antd';
 import {addNewTodo} from "./client";
 // import {LoadingOutlined} from "@ant-design/icons";
 import {useState} from 'react';
+import Moment from 'moment';
 // import {successNotification, errorNotification} from "./Notification";
 
 const {Option} = Select;
@@ -75,23 +76,6 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                         <Input placeholder="Please enter text"/>
                     </Form.Item>
                 </Col>
-                <Col span={12}>
-                    <Form.Item hidden
-                        name="createdAt"
-                        // rules={[{required: true, message: 'Please enter text'}]}
-                    >
-                        <Input placeholder="Please enter text" value={Date.now()}/>
-                    </Form.Item>
-                </Col>
-                {/*<Col span={12}>*/}
-                {/*    <Form.Item*/}
-                {/*        name="email"*/}
-                {/*        label="Email"*/}
-                {/*        rules={[{required: true, message: 'Please enter student email'}]}*/}
-                {/*    >*/}
-                {/*        <Input placeholder="Please enter student email"/>*/}
-                {/*    </Form.Item>*/}
-                {/*</Col>*/}
             </Row>
             {/*<Row gutter={16}>*/}
             {/*    <Col span={12}>*/}
@@ -118,7 +102,6 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                 </Col>
             </Row>
             <Row>
-                {/*{submitting && <Spin indicator={antIcon} />}*/}
                 {submitting}
             </Row>
         </Form>

@@ -4,6 +4,7 @@ import cz.kappega.todo.server.todo.exeption.TodoNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class TodoService {
     }
 
     public void addTodo(Todo todo) {
+        todo.setCreatedAt(LocalDateTime.now());
         todoRepository.save(todo);
     }
 

@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 
 import { Mood as MoodIcon, MoodBad as MoodBadIcon } from '@mui/icons-material';
+import {deleteTodo} from "./client";
 
 
 const TodoCard = ({id, text, done}) => {
@@ -26,7 +27,7 @@ const TodoCard = ({id, text, done}) => {
 			</CardContent>
 			<Stack direction="row" spacing={2}>
 				<CardActions>
-					{id ? <Button size="small">Delete</Button> : null}
+					<Button onClick={() => deleteTodo()} size="small">Delete</Button>
 				</CardActions>
 				<CardActions>
 					{!done ? <Button size="small">Mark as done</Button> : null}
