@@ -61,9 +61,9 @@ function App() {
                     return <div>
                         {/* <TodoCard id={t.id} todo={t.todo} done={t.done}/> */}
                         <TodoCard {...t}>
-                            <Button variant="outlined" startIcon={<DeleteIcon />}>
-                                Delete
-                            </Button>
+                            {/*<Button variant="outlined" startIcon={<DeleteIcon />}>*/}
+                            {/*    Delete*/}
+                            {/*</Button>*/}
                         </TodoCard>
                         <br/>
                     </div>
