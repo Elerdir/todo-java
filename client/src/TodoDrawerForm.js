@@ -1,13 +1,8 @@
-import {Drawer, Input, Col, Select, Form, Row, Button, Spin} from 'antd';
+import {Drawer, Input, Col, Select, Form, Row, Button} from 'antd';
 import {addNewTodo} from "./client";
-// import {LoadingOutlined} from "@ant-design/icons";
 import {useState} from 'react';
-import Moment from 'moment';
-// import {successNotification, errorNotification} from "./Notification";
 
 const {Option} = Select;
-
-// const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
     const onCLose = () => setShowDrawer(false);
@@ -77,6 +72,7 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                     </Form.Item>
                 </Col>
             </Row>
+            // todo předělat na stavy
             {/*<Row gutter={16}>*/}
             {/*    <Col span={12}>*/}
             {/*        <Form.Item*/}

@@ -28,3 +28,9 @@ export const deleteTodo = todoId =>
     fetch(`api/v1/todos/${todoId}`, {
         method: 'DELETE'
     }).then(checkStatus);
+
+export const editTodo = todo =>
+    fetch(`api/v1/todos/${todo.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(todo)
+    }).then(checkStatus);
