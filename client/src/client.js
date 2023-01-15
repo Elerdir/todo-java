@@ -14,17 +14,23 @@ export const getAllTodos = () =>
     fetch("api/v1/todos")
         .then(checkStatus);
 
-// export const addNewStudent = student =>
-//     fetch("api/v1/students", {
-//             headers: {
-//                 "Content-type": "application/json"
-//             },
-//         method: "POST",
-//         body: JSON.stringify(student)
-//         }
-//     ).then(checkStatus)
-//
-// export const deleteStudent = studentId =>
-//     fetch(`api/v1/students/${studentId}`, {
-//         method: 'DELETE'
-//     }).then(checkStatus);
+export const addNewTodo = todo =>
+    fetch("api/v1/todos", {
+            headers: {
+                "Content-type": "application/json"
+            },
+        method: "POST",
+        body: JSON.stringify(todo)
+        }
+    ).then(checkStatus)
+
+export const deleteTodo = todoId =>
+    fetch(`api/v1/todos/${todoId}`, {
+        method: 'DELETE'
+    }).then(checkStatus);
+
+export const editTodo = todo =>
+    fetch(`api/v1/todos/${todo.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(todo)
+    }).then(checkStatus);
