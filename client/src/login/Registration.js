@@ -50,6 +50,7 @@ function Registration({register, setRegister}) {
                 />
             </FormControl>
 
+            {/*todo: how to redirect after successful registration*/}
             <Button sx={{ mt: 1 /* margin top */ }}>
                 Sign up
             </Button>
