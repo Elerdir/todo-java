@@ -14,13 +14,14 @@ export const getAllTodos = () =>
     fetch("api/v1/todos")
         .then(checkStatus);
 
-export const login = () =>
-    fetch("api/v1/login")
-        .then(checkStatus);
-
-export const register = () =>
-    fetch("api/v1/register")
-        .then(checkStatus);
+// todo: do we need this?
+// export const login = () =>
+//     fetch("api/v1/login")
+//         .then(checkStatus);
+//
+// export const register = () =>
+//     fetch("api/v1/register")
+//         .then(checkStatus);
 
 export const addNewTodo = todo =>
     fetch("api/v1/todos", {

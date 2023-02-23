@@ -2,12 +2,13 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
 import {Typography} from "@mui/material";
-import Registration from "./Registration";
 
+function Login() {
+    const redirectToRegistrationPage = () => {
+        window.location.href="/register";
 
-function Login({login, setLogin}) {
+    };
     return (
         <div>
             <FormControl>
@@ -32,12 +33,10 @@ function Login({login, setLogin}) {
                 Log in
             </Button>
             <Typography
-                endDecorator={<Link href="/sign-up">Sign up</Link>}
                 fontSize="sm"
                 sx={{ alignSelf: 'center' }}
             >
-                {/*todo: how to redirect?*/}
-                {/*Don't have an account? <button onClick={}>Create one.</button>*/}
+                Don't have an account? <button onClick={redirectToRegistrationPage}>Create one.</button>
             </Typography>
 
         </div>

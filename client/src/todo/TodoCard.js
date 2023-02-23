@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 
 import { Mood as MoodIcon, MoodBad as MoodBadIcon } from '@mui/icons-material';
-import {deleteTodo, editTodo} from "./client";
+import {deleteTodo, editTodo} from "../client";
 import TodoDrawerForm from "./TodoDrawerForm";
 import {useState, useEffect} from 'react'
 

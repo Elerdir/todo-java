@@ -3,7 +3,7 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 
-function Registration({register, setRegister}) {
+function Registration() {
     return (
         <div>
             <FormControl>
@@ -35,7 +35,6 @@ function Registration({register, setRegister}) {
             <FormControl>
                 <FormLabel>Email</FormLabel>
                 <Input
-                    // html input attribute
                     name="email"
                     type="email"
                     placeholder="johndoe@email.com"
