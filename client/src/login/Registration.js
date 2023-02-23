@@ -10,9 +10,9 @@ function Registration() {
 	const schema = yup.object().shape({
 		firstName: yup.string().required("First name is required."),
 		lastName: yup.string().required("Last name is required."),
-		applicationName: yup.string().required("Application name is required."),
+		app: yup.string().required("Application name is required."),
 		email: yup.string().email().required("Email is required."),
-		password: yup.string().min(8).required("Password is required."),
+		password: yup.string().min(1).required("Password is required."),
 		confirmPassword: yup.string().oneOf([yup.ref("password"), null], "Passwords have to match. ").required("Confirm password is required."),
 	});
 
@@ -20,15 +20,21 @@ function Registration() {
 		resolver: yupResolver(schema)
 	});
 
-	const sendToApi = (jsonData) => {
-		//     todo: send to api
+	const sendToApi = async (jsonData) => {
+		let response = await fetch("api/v1/auth/register", {
+			headers: { 'Content-Type': 'application/json'},
+			method: "POST",
+			body: jsonData
+		});
 
+		let jsonResponse = await response.json();
 		const token = "";
-		//     todo: if successful redirect do /todos
-		if (token) {
+
+		if (response.status === 200) {
 			window.location.href="/todos";
 		} else {
 			//     todo: else exception "email with this app is already registered"
+			console.log(response.status);
 		}
 
 	}
@@ -47,8 +53,8 @@ function Registration() {
 				<input {...register("lastName")} type="text" placeholder="doe"/>
 				<p className="error">{errors.lastName?.message}</p>
 				<FormLabel>Application name</FormLabel>
-				<input {...register("applicationName")} type="text" placeholder="todo"/>
-				<p className="error">{errors.applicationName?.message}</p>
+				<input {...register("app")} type="text" placeholder="todo"/>
+				<p className="error">{errors.app?.message}</p>
 				<FormLabel>Email</FormLabel>
 				<input {...register("email")} type="email" placeholder="johndoe@email.com"/>
 				<p className="error">{errors.email?.message}</p>
