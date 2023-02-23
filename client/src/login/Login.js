@@ -7,8 +7,8 @@ import {Typography} from "@mui/material";
 function Login() {
     const redirectToRegistrationPage = () => {
         window.location.href="/register";
-
     };
+
     return (
         <div>
             <FormControl>
@@ -41,7 +41,6 @@ function Login() {
 
         </div>
     );
-
 }
 
 export default Login;
