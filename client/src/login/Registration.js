@@ -2,60 +2,75 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
+import {useForm} from "react-hook-form";
+import * as yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup';
 
 function Registration() {
-    return (
-        <div>
-            <FormControl>
-                <FormLabel>First name</FormLabel>
-                <Input
-                    name="firstName"
-                    type="text"
-                    placeholder="john"
-                />
-            </FormControl>
-            <FormControl>
-                <FormLabel>Last name</FormLabel>
-                <Input
-                    name="lastName"
-                    type="text"
-                    placeholder="doe"
-                />
-            </FormControl>
-            {/*Todo: make it a list*/}
-            <FormControl>
-                <FormLabel>Application</FormLabel>
-                <Input
-                    // html input attribute
-                    name="application"
-                    type="text"
-                    placeholder="todo"
-                />
-            </FormControl>
-            <FormControl>
-                <FormLabel>Email</FormLabel>
-                <Input
-                    name="email"
-                    type="email"
-                    placeholder="johndoe@email.com"
-                />
-            </FormControl>
-            <FormControl>
-                <FormLabel>Password</FormLabel>
-                <Input
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                />
-            </FormControl>
+	const schema = yup.object().shape({
+		firstName: yup.string().required("First name is required."),
+		lastName: yup.string().required("Last name is required."),
+		applicationName: yup.string().required("Application name is required."),
+		email: yup.string().email().required("Email is required."),
+		password: yup.string().min(8).required("Password is required."),
+		confirmPassword: yup.string().oneOf([yup.ref("password"), null], "Passwords have to match. ").required("Confirm password is required."),
+	});
 
-            {/*todo: how to redirect after successful registration*/}
-            <Button sx={{ mt: 1 /* margin top */ }}>
-                Sign up
-            </Button>
-        </div>
-    );
+	const { register, handleSubmit, formState: {errors}} = useForm({
+		resolver: yupResolver(schema)
+	});
 
+	const sendToApi = (jsonData) => {
+		//     todo: send to api
+
+		const token = "";
+		//     todo: if successful redirect do /todos
+		if (token) {
+			window.location.href="/todos";
+		} else {
+			//     todo: else exception "email with this app is already registered"
+		}
+
+	}
+
+	const onSubmit = (data) => {
+		sendToApi(JSON.stringify(data));
+	}
+
+	return (
+		<div>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<FormLabel>First name</FormLabel>
+				<input {...register("firstName")} type="text" placeholder="john"/>
+				<p className="error">{errors.firstName?.message}</p>
+				<FormLabel>Last name</FormLabel>
+				<input {...register("lastName")} type="text" placeholder="doe"/>
+				<p className="error">{errors.lastName?.message}</p>
+				<FormLabel>Application name</FormLabel>
+				<input {...register("applicationName")} type="text" placeholder="todo"/>
+				<p className="error">{errors.applicationName?.message}</p>
+				<FormLabel>Email</FormLabel>
+				<input {...register("email")} type="email" placeholder="johndoe@email.com"/>
+				<p className="error">{errors.email?.message}</p>
+				<FormLabel>Password</FormLabel>
+				<input {...register("password")} type="password" placeholder="password"/>
+				<p className="error">{errors.password?.message}</p>
+				<FormLabel>Confirm password</FormLabel>
+				<input {...register("confirmPassword")} type="password" placeholder="confirm password"/>
+				<p className="error">{errors.confirmPassword?.message}</p>
+				<br/>
+				<br/>
+				<input sx={{mt: 1}} type="submit"/>
+			</form>
+			{/*<FormControl>*/}
+			{/*</FormControl>*/}
+
+			{/*/!*todo: how to redirect after successful registration*!/*/}
+			{/*<Button sx={{ mt: 1 }} onClick={sendToApi()}>*/}
+			{/*	Sign up*/}
+			{/*</Button>*/}
+		</div>
+	);
 }
 
 export default Registration;
