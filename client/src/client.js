@@ -10,8 +10,12 @@ const checkStatus = response => {
     return Promise.reject(error);
 }
 
+const baseURL = "http://localhost:8080/";
+
 export const getAllTodos = () =>
-    fetch("api/v1/todos")
+    fetch(baseURL + "api/v1/todos", {
+        headers: { 'Content-Type': 'Access-Control-Allow-Origin'},
+    })
         .then(checkStatus);
 
 // todo: do we need this?
@@ -24,7 +28,7 @@ export const getAllTodos = () =>
 //         .then(checkStatus);
 
 export const addNewTodo = todo =>
-    fetch("api/v1/todos", {
+    fetch(baseURL + "api/v1/todos", {
             headers: {
                 "Content-type": "application/json"
             },
@@ -34,12 +38,12 @@ export const addNewTodo = todo =>
     ).then(checkStatus)
 
 export const deleteTodo = todoId =>
-    fetch(`api/v1/todos/${todoId}`, {
+    fetch(baseURL +`api/v1/todos/${todoId}`, {
         method: 'DELETE'
     }).then(checkStatus);
 
 export const editTodo = todo =>
-    fetch(`api/v1/todos/${todo.id}`, {
+    fetch(baseURL + `api/v1/todos/${todo.id}`, {
         method: 'PATCH',
         body: JSON.stringify(todo)
     }).then(checkStatus);

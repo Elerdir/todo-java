@@ -12,16 +12,16 @@ function TodoList() {
 
 	const fetchTodos = () =>
 		getAllTodos()
-			.then(res => res.json())
+			// .then(res => res.json())
 			.then(data => {
-				console.log(data);
+				console.log("jdflkhasdlf", data);
 				setTodos(data);
 			}).catch(err => {
 			console.log(err.response);
-			err.response.json().then(res => {
-				console.log(res);
-				//errorNotification("nastala chybka", `${res.message} [${res.status}]`);
-			});
+			// err.response.json().then(res => {
+			// 	console.log(res);
+			// 	//errorNotification("nastala chybka", `${res.message} [${res.status}]`);
+			// });
 		}).finally(() => setFetching(false));
 
 	useEffect(() => {

@@ -28,6 +28,7 @@ function Registration() {
 		});
 
 		let jsonResponse = await response.json();
+		// TODO: do we need to use token in todo app?
 		const token = "";
 
 		if (response.status === 200) {
@@ -45,6 +46,7 @@ function Registration() {
 
 	return (
 		<div>
+			{/*<FormControl>*/}
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<FormLabel>First name</FormLabel>
 				<input {...register("firstName")} type="text" placeholder="john"/>
@@ -53,6 +55,7 @@ function Registration() {
 				<input {...register("lastName")} type="text" placeholder="doe"/>
 				<p className="error">{errors.lastName?.message}</p>
 				<FormLabel>Application name</FormLabel>
+				{/*todo: should it add user or application?*/}
 				<input {...register("app")} type="text" placeholder="todo"/>
 				<p className="error">{errors.app?.message}</p>
 				<FormLabel>Email</FormLabel>
@@ -68,13 +71,7 @@ function Registration() {
 				<br/>
 				<input sx={{mt: 1}} type="submit"/>
 			</form>
-			{/*<FormControl>*/}
 			{/*</FormControl>*/}
-
-			{/*/!*todo: how to redirect after successful registration*!/*/}
-			{/*<Button sx={{ mt: 1 }} onClick={sendToApi()}>*/}
-			{/*	Sign up*/}
-			{/*</Button>*/}
 		</div>
 	);
 }
