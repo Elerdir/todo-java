@@ -36,7 +36,6 @@ function TodoList() {
 	return (
 		<Container maxWidth="sm">
 			<div>
-				 {/*todo: create a condition*/}
 				 <h1>List of todos</h1>
 				 <Button
 				     onClick={() => setShowDrawer(!showDrawer)}
@@ -60,8 +59,8 @@ function TodoList() {
 				         <br/>
 				     </div>
 				 }) : "no todos"}
-				 </div>
-			 </Container>
+			</div>
+		</Container>
 	)
 }
 
