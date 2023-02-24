@@ -1,5 +1,6 @@
 package cz.kappega.todo.server.todo;
 
+import cz.kappega.todo.server.todo.states.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -43,7 +44,8 @@ class TodoServiceTest {
         LocalDateTime localDateTime = LocalDateTime.now();
         Todo todo = new Todo(
                 "připomínka",
-                localDateTime
+                localDateTime,
+                State.IN_PROGRESS
         );
 
         // when

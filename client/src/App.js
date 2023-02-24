@@ -7,6 +7,8 @@ import {Button} from "antd";
 import {Container} from "@mui/material";
 import TodoDrawerForm from "./TodoDrawerForm";
 
+import States from "./states/States";
+
 function App() {
     const [todos, setTodos] = useState([]);
     const [fetching, setFetching] = useState(true);
@@ -52,7 +54,7 @@ function App() {
                 {/*<Empty/>*/}
                 {todos && todos.length > 0 ? todos.map(t => {
                     return <div>
-                        <TodoCard id={t.id} text={t.text} done={t.done} fetchTodos={fetchTodos}/>
+                        <TodoCard id={t.id} text={t.text} state={t.state} fetchTodos={fetchTodos}/>
                         {/*<TodoCard {...t}>*/}
                         {/*<Button variant="outlined" startIcon={<DeleteIcon />}>*/}
                         {/*    Delete*/}

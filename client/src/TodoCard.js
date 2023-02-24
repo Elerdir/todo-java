@@ -47,7 +47,7 @@ const edit_Todo = (todo, callback) => {
 	});
 }
 
-function TodoCard({id, text, done, fetchTodos}) {
+function TodoCard({id, text, state, fetchTodos}) {
 	const [showDrawer, setShowDrawer] = useState(false);
 
 	return (
@@ -55,9 +55,9 @@ function TodoCard({id, text, done, fetchTodos}) {
 			<CardContent>
 				<Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
 					<Chip
-						color={done ? "success" : "error"}
-						icon={done ? <MoodIcon/> : <MoodBadIcon /> }
-						label={`id - ${id}`}/>
+						// color={state ? "success" : "error"}
+						// icon={state ? <MoodIcon/> : <MoodBadIcon /> }
+						label={`state - ${state}`}/>
 				</Typography>
 				<Typography sx={{ fontSize: 25 }} color="text.secondary" gutterBottom>
 					{text}
@@ -80,6 +80,7 @@ function TodoCard({id, text, done, fetchTodos}) {
 						fetchTodos={fetchTodos}
 					/>
 				</CardActions>
+				{/*todo: how to change states*/}
 				{/*<CardActions>*/}
 				{/*	{!done ? <Button size="small">Mark as done</Button> : null}*/}
 				{/*</CardActions>*/}

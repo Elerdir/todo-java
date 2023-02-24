@@ -1,5 +1,6 @@
 package cz.kappega.todo.server.todo;
 
+import cz.kappega.todo.server.todo.states.State;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,9 +29,13 @@ public class Todo {
     private String text;
     @Column(nullable = false)
     private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private State state;
 
-    public Todo(String text, LocalDateTime createdAt) {
+    public Todo(String text, LocalDateTime createdAt, State state) {
         this.text = text;
         this.createdAt = createdAt;
+        this.state = state;
     }
 }
