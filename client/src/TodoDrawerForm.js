@@ -79,7 +79,7 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                         label="State"
                         rules={[{required: true, message: 'Please select a state'}]}
                     >
-                        {/*todo: retreat states from enum*/}
+                        {/*todo: get states from enum*/}
                         <Select placeholder="Please select a state">
                             <Option value="IN_PROGRESS">IN_PROGRESS</Option>
                             <Option value="DONE">DONE</Option>
