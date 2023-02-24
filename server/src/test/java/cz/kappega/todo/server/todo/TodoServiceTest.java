@@ -24,6 +24,7 @@ class TodoServiceTest {
     @Mock
     private TodoRepository todoRepository;
     private TodoService underTest;
+    private State state;
 
     @BeforeEach
     void setUp() {
@@ -45,7 +46,8 @@ class TodoServiceTest {
         Todo todo = new Todo(
                 "připomínka",
                 localDateTime,
-                State.IN_PROGRESS
+                //todo: repair
+                state
         );
 
         // when

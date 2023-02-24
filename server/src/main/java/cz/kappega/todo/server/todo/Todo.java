@@ -29,7 +29,10 @@ public class Todo {
     private String text;
     @Column(nullable = false)
     private LocalDateTime createdAt;
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
+    @OneToOne(
+            mappedBy = "todo"
+    )
     @Column(nullable = false)
     private State state;
 
