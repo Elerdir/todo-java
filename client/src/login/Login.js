@@ -24,7 +24,6 @@ function Login() {
     const sendToApi = async (jsonData) => {
         let response = await fetch("http://localhost:8082/api/v1/auth/authenticate", {
             headers: { 'Content-Type': 'application/json'},
-            // headers: { 'Content-Type': 'Authorization'},
             method: "POST",
             body: jsonData
         });
@@ -32,7 +31,6 @@ function Login() {
         // let jsonResponse = await response.json();
         const token = "";
 
-        //     todo: if successful redirect do /todos
         if (response.status === 200) {
             window.location.href="/todos";
         } else {
