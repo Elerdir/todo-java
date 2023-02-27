@@ -12,7 +12,7 @@ function TodoList() {
 
 	const fetchTodos = () =>
 		getAllTodos()
-			// .then(res => res.json())
+			.then(res => res.json())
 			.then(data => {
 				console.log("jdflkhasdlf", data);
 				setTodos(data);

@@ -14,24 +14,14 @@ const baseURL = "http://localhost:8080/";
 
 export const getAllTodos = () =>
     fetch(baseURL + "api/v1/todos", {
-        headers: { 'Content-Type': 'Access-Control-Allow-Origin'},
+        headers: {"Content-Type": "application/json"},
+        method: "GET"
     })
         .then(checkStatus);
 
-// todo: do we need this?
-// export const login = () =>
-//     fetch("api/v1/login")
-//         .then(checkStatus);
-//
-// export const register = () =>
-//     fetch("api/v1/register")
-//         .then(checkStatus);
-
-export const addNewTodo = todo =>
-    fetch(baseURL + "api/v1/todos", {
-            headers: {
-                "Content-type": "application/json"
-            },
+export const addNewTodo = async todo =>
+    await fetch(baseURL + "api/v1/todos", {
+            headers: {"Content-type": "application/json"},
         method: "POST",
         body: JSON.stringify(todo)
         }
