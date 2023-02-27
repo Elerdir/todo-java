@@ -1,6 +1,7 @@
 import {Drawer, Input, Col, Select, Form, Row, Button} from 'antd';
 import {addNewTodo} from "../client";
 import {useState} from 'react';
+import TextArea from "antd/es/input/TextArea";
 
 const {Option} = Select;
 
@@ -66,13 +67,39 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                     <Form.Item
                         name="text"
                         label="Text"
-                        rules={[{required: true, message: 'Please enter text'}]}
+                        rules={[{required: true, message: 'Please enter a text'}]}
                     >
-                        <Input placeholder="Please enter text"/>
+                        <Input placeholder="Please enter a text"/>
                     </Form.Item>
                 </Col>
             </Row>
-            // todo předělat na stavy
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item
+                        name="description"
+                        label="Description"
+                        rules={[{required: true, message: 'Please enter a description'}]}
+                    >
+                        <TextArea placeholder="Please enter a description"/>
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item
+                        name="assign"
+                        label="Assignee"
+                        rules={[{required: true, message: 'Please select an assignee'}]}
+                    >
+                        <Select placeholder="Please select an assignee">
+                            <Option value="MALE">MALE</Option>
+                            <Option value="FEMALE">FEMALE</Option>
+                            <Option value="OTHER">OTHER</Option>
+                        </Select>
+                    </Form.Item>
+                </Col>
+            </Row>
+            {/* todo předělat na stavy*/}
             {/*<Row gutter={16}>*/}
             {/*    <Col span={12}>*/}
             {/*        <Form.Item*/}

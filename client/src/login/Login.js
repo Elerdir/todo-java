@@ -32,9 +32,10 @@ function Login() {
         const token = "";
 
         if (response.status === 200) {
-            console.log(jsonResponse.token);
-
             localStorage.setItem("token", jsonResponse.token);
+            localStorage.setItem("email", jsonResponse.email);
+            localStorage.setItem("firstName", jsonResponse.firstName);
+            localStorage.setItem("lastName", jsonResponse.lastName);
             window.location.href="/";
         } else {
             //     todo: else exception "email with this app is already registered"
