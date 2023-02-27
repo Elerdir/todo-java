@@ -3,6 +3,7 @@ package cz.kappega.todo.server.todo.states;
 import cz.kappega.todo.server.todo.Todo;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
 
 @Getter
 @Setter
@@ -15,7 +16,8 @@ import lombok.*;
 public class State {
 
 	@Id
-	private Long id;
+	@UuidGenerator
+	private String id;
 	private String state;
 
 	@OneToOne(
