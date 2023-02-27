@@ -47,7 +47,7 @@ const edit_Todo = (todo, callback) => {
 	});
 }
 
-function TodoCard({id, text, done, fetchTodos}) {
+function TodoCard({id, text, description, done, fetchTodos}) {
 	const [showDrawer, setShowDrawer] = useState(false);
 
 	return (
@@ -61,6 +61,9 @@ function TodoCard({id, text, done, fetchTodos}) {
 				</Typography>
 				<Typography sx={{ fontSize: 25 }} color="text.secondary" gutterBottom>
 					{text}
+				</Typography>
+				<Typography sx={{ fontSize: 25 }} color="text.secondary" gutterBottom>
+					{description}
 				</Typography>
 			</CardContent>
 			<Stack direction="row" spacing={2}>
