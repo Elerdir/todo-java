@@ -21,13 +21,13 @@ function Registration() {
 	});
 
 	const sendToApi = async (jsonData) => {
-		let response = await fetch("api/v1/auth/register", {
+		let response = await fetch("http://localhost:8082/api/v1/auth/register", {
 			headers: { 'Content-Type': 'application/json'},
 			method: "POST",
 			body: jsonData
 		});
 
-		let jsonResponse = await response.json();
+		// let jsonResponse = await response.json();
 		// TODO: do we need to use token in todo app?
 		const token = "";
 
