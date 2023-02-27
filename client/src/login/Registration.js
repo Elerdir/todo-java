@@ -27,11 +27,12 @@ function Registration() {
 			body: jsonData
 		});
 
-		// let jsonResponse = await response.json();
+		let jsonResponse = await response.json();
 		// TODO: do we need to use token in todo app?
 		const token = "";
 
 		if (response.status === 200) {
+			localStorage.setItem("token", jsonResponse.token);
 			window.location.href="/todos";
 		} else {
 			//     todo: else exception "email with this app is already registered"

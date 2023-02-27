@@ -28,11 +28,14 @@ function Login() {
             body: jsonData
         });
 
-        // let jsonResponse = await response.json();
+        let jsonResponse = await response.json();
         const token = "";
 
         if (response.status === 200) {
-            window.location.href="/todos";
+            console.log(jsonResponse.token);
+
+            localStorage.setItem("token", jsonResponse.token);
+            window.location.href="/";
         } else {
             //     todo: else exception "email with this app is already registered"
             console.log(response.status);
