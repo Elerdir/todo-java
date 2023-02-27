@@ -41,9 +41,13 @@ class TodoServiceTest {
     void canAddTodo() {
         // given
         LocalDateTime localDateTime = LocalDateTime.now();
+//        todo: get from db?
         Todo todo = new Todo(
                 "připomínka",
-                localDateTime
+                "popis",
+                localDateTime,
+                "nekdo",
+                "nekomu"
         );
 
         // when

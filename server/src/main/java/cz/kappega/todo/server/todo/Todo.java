@@ -35,9 +35,11 @@ public class Todo {
     @Column(nullable = false)
     private String assign;
 
-
-    public Todo(String text, LocalDateTime createdAt) {
+    public Todo(String text, String description, LocalDateTime createdAt, String createdBy, String assign) {
         this.text = text;
+        this.description = description;
         this.createdAt = createdAt;
+        this.createdBy = createdBy;
+        this.assign = assign;
     }
 }
