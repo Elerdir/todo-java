@@ -27,7 +27,14 @@ public class Todo {
     @Column(nullable = false)
     private String text;
     @Column(nullable = false)
+    private String description;
+    @Column(nullable = false)
     private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private String createdBy;
+    @Column(nullable = false)
+    private String assign;
+
 
     public Todo(String text, LocalDateTime createdAt) {
         this.text = text;
