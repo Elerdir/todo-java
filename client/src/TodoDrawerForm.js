@@ -72,22 +72,22 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                     </Form.Item>
                 </Col>
             </Row>
-            // todo předělat na stavy
-            {/*<Row gutter={16}>*/}
-            {/*    <Col span={12}>*/}
-            {/*        <Form.Item*/}
-            {/*            name="gender"*/}
-            {/*            label="gender"*/}
-            {/*            rules={[{required: true, message: 'Please select a gender'}]}*/}
-            {/*        >*/}
-            {/*            <Select placeholder="Please select a gender">*/}
-            {/*                <Option value="MALE">MALE</Option>*/}
-            {/*                <Option value="FEMALE">FEMALE</Option>*/}
-            {/*                <Option value="OTHER">OTHER</Option>*/}
-            {/*            </Select>*/}
-            {/*        </Form.Item>*/}
-            {/*    </Col>*/}
-            {/*</Row>*/}
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item
+                        name="state"
+                        label="State"
+                        rules={[{required: true, message: 'Please select a state'}]}
+                    >
+                        {/*todo: get states from enum*/}
+                        <Select placeholder="Please select a state">
+                            <Option value="IN_PROGRESS">IN_PROGRESS</Option>
+                            <Option value="DONE">DONE</Option>
+                            <Option value="OTHER">OTHER</Option>
+                        </Select>
+                    </Form.Item>
+                </Col>
+            </Row>
             <Row>
                 <Col span={12}>
                     <Form.Item>
