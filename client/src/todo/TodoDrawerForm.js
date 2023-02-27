@@ -1,5 +1,5 @@
 import {Drawer, Input, Col, Select, Form, Row, Button} from 'antd';
-import {addNewTodo} from "./client";
+import {addNewTodo} from "../client";
 import {useState} from 'react';
 
 const {Option} = Select;

@@ -10,27 +10,30 @@ const checkStatus = response => {
     return Promise.reject(error);
 }
 
+const baseURL = "http://localhost:8080/";
+
 export const getAllTodos = () =>
-    fetch("api/v1/todos")
+    fetch(baseURL + "api/v1/todos", {
+        headers: {"Content-Type": "application/json"},
+        method: "GET"
+    })
         .then(checkStatus);
 
-export const addNewTodo = todo =>
-    fetch("api/v1/todos", {
-            headers: {
-                "Content-type": "application/json"
-            },
+export const addNewTodo = async todo =>
+    await fetch(baseURL + "api/v1/todos", {
+            headers: {"Content-type": "application/json"},
         method: "POST",
         body: JSON.stringify(todo)
         }
     ).then(checkStatus)
 
 export const deleteTodo = todoId =>
-    fetch(`api/v1/todos/${todoId}`, {
+    fetch(baseURL +`api/v1/todos/${todoId}`, {
         method: 'DELETE'
     }).then(checkStatus);
 
 export const editTodo = todo =>
-    fetch(`api/v1/todos/${todo.id}`, {
+    fetch(baseURL + `api/v1/todos/${todo.id}`, {
         method: 'PATCH',
         body: JSON.stringify(todo)
     }).then(checkStatus);
