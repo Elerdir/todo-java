@@ -8,6 +8,7 @@ const {Option} = Select;
 function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
     const onCLose = () => setShowDrawer(false);
     const [submitting, setSubmitting] = useState(false);
+    // console.log(localStorage);
 
     const onFinish = todo => {
         setSubmitting(true)
@@ -62,6 +63,17 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
               onFinishFailed={onFinishFailed}
               onFinish={onFinish}
               hideRequiredMark>
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item hidden={true} initialValue={localStorage.getItem("email")}
+                        name="createdBy"
+                        label="CreatedBy"
+                        rules={[{required: true, message: 'Please enter a text'}]}
+                    >
+                        <input></input>
+                    </Form.Item>
+                </Col>
+            </Row>
             <Row gutter={16}>
                 <Col span={12}>
                     <Form.Item
