@@ -2,13 +2,13 @@ import {Drawer, Input, Col, Select, Form, Row, Button} from 'antd';
 import {addNewTodo} from "../client";
 import {useState} from 'react';
 import TextArea from "antd/es/input/TextArea";
+import {getEmail} from "../localStorage/LocalStorage";
 
 const {Option} = Select;
 
 function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
     const onCLose = () => setShowDrawer(false);
     const [submitting, setSubmitting] = useState(false);
-    // console.log(localStorage);
 
     const onFinish = todo => {
         setSubmitting(true)
@@ -65,7 +65,7 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
               hideRequiredMark>
             <Row gutter={16}>
                 <Col span={12}>
-                    <Form.Item hidden={true} initialValue={localStorage.getItem("email")}
+                    <Form.Item hidden={true} initialValue={getEmail()}
                         name="createdBy"
                         label="CreatedBy"
                         rules={[{required: true, message: 'Please enter a text'}]}

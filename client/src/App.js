@@ -4,9 +4,10 @@ import Login from "./login/Login";
 import Registration from "./login/Registration";
 import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
 import TodoList from "./todo/TodoList";
+import {getToken} from "./localStorage/LocalStorage";
 
 function isTokenExisting() {
-    return localStorage.getItem("token");
+    return getToken;
 }
 
 function App() {
