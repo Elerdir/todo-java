@@ -14,7 +14,6 @@ function TodoList() {
 		getAllTodos()
 			.then(res => res.json())
 			.then(data => {
-				console.log("jdflkhasdlf", data);
 				setTodos(data);
 			}).catch(err => {
 			console.log(err.response);

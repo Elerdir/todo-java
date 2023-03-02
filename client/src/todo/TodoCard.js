@@ -17,7 +17,6 @@ const removeTodo = (todoId, callback) => {
 	deleteTodo(todoId).then(() => {
 		// successNotification("Student deleted", `Student with ${todoId} was deleted`);
 		// console.log(callback);
-		console.log(callback);
 		callback();
 	}).catch(err => {
 		// err.response.json().then(res => {
@@ -34,7 +33,6 @@ const edit_Todo = (todo, callback) => {
 	editTodo(todo).then(() => {
 		// successNotification("Student deleted", `Student with ${todoId} was deleted`);
 		// console.log(callback);
-		console.log(callback);
 		callback();
 	}).catch(err => {
 		// err.response.json().then(res => {
