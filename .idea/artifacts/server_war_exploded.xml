@@ -77,12 +77,12 @@
           <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:2.1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:6.0.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.0.2" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-security:3.0.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:6.0.2" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:6.0.0" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-security:3.0.0" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:6.0.0" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:6.0.0" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:6.0.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:6.0.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:6.0.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

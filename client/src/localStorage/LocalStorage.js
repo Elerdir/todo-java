@@ -27,6 +27,7 @@ export const setLastName = (lastName) => {
 }
 
 export const deleteLocaleStorage = () => {
+	// todo: delete only token, email, names
 	localStorage.clear();
 }
 

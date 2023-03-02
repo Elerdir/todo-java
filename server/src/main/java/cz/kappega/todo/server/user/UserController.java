@@ -1,0 +1,29 @@
+package cz.kappega.todo.server.user;
+
+import cz.kappega.todo.server.user.exchange.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+@RequestMapping("/api/v1/user")
+@RequiredArgsConstructor
+public class UserController {
+
+	private final UserService userService;
+
+	@PostMapping("/register")
+	public RegisterResponse register(@RequestBody RegisterRequest registerRequest) {
+		return userService.register(registerRequest);
+	}
+
+	@PostMapping("/login")
+	public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+		return userService.login(loginRequest);
+	}
+
+	@PostMapping("/logout")
+	public void logout(@RequestBody LogoutRequest logoutRequest) {
+		userService.logout(logoutRequest);
+	}
+}

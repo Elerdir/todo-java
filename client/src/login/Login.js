@@ -6,6 +6,7 @@ import {Typography} from "@mui/material";
 import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
+import {setToken, setEmail, setFirstName, setLastName} from "../localStorage/LocalStorage";
 
 function Login() {
     const redirectToRegistrationPage = () => {
@@ -29,13 +30,12 @@ function Login() {
         });
 
         let jsonResponse = await response.json();
-        const token = "";
 
         if (response.status === 200) {
-            localStorage.setItem("token", jsonResponse.token);
-            localStorage.setItem("email", jsonResponse.email);
-            localStorage.setItem("firstName", jsonResponse.firstName);
-            localStorage.setItem("lastName", jsonResponse.lastName);
+            setToken(jsonResponse.token);
+            setEmail(jsonResponse.email);
+            setFirstName(jsonResponse.firstName);
+            setLastName(jsonResponse.lastName);
             window.location.href="/";
         } else {
             //     todo: else exception "email with this app is already registered"

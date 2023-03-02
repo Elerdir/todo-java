@@ -7,7 +7,7 @@ import TodoList from "./todo/TodoList";
 import {getToken} from "./localStorage/LocalStorage";
 
 function isTokenExisting() {
-    return getToken;
+    return getToken() !== null;
 }
 
 function App() {
