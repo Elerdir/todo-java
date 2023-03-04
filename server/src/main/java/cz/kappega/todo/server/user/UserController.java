@@ -2,7 +2,10 @@ package cz.kappega.todo.server.user;
 
 import cz.kappega.todo.server.user.exchange.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -11,6 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
 	private final UserService userService;
+
+	@GetMapping("/list-of-app-users")
+	public UserResponse getListOfAppUsers(@RequestBody TokenRequest token) {
+		return userService.getListOfAppUsers(token);
+	}
 
 	@PostMapping("/register")
 	public RegisterResponse register(@RequestBody RegisterRequest registerRequest) {

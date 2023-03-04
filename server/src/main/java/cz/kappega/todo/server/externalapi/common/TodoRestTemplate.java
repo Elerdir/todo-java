@@ -5,11 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -24,51 +22,66 @@ import java.net.URI;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
+//@NoArgsConstructor(access = AccessLevel.PRIVATE)
+//@AllArgsConstructor(access = AccessLevel.PRIVATE, staticName = "of")
+@Service
 public class TodoRestTemplate {
-	private RestTemplate restTemplate;
+	private static final RestTemplate restTemplate = new RestTemplate();
 
-	public <I, O> ResponseEntity<O> exchange(String baseUrl,
-											 TodoRestRequest<I, O> todoRestRequest) {
+//	public <I, O> ResponseEntity<O> exchange(String baseUrl, TodoRestRequest<I, O> todoRestRequest) {
+//		return restTemplate.exchange(
+//				uri(baseUrl, todoRestRequest),
+//				todoRestRequest.getHttpMethod(),
+//				requestEntity(todoRestRequest),
+//				todoRestRequest.getResponseType());
+//	}
+
+	public <I, O> ResponseEntity<O> exchange(String url, HttpMethod httpMethod, I request, Class<O> responseType) {
+
+		//RestTemplate restTemplate = new RestTemplate();
+
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
 		return restTemplate.exchange(
-				uri(baseUrl, todoRestRequest),
-				todoRestRequest.getHttpMethod(),
-				requestEntity(todoRestRequest),
-				todoRestRequest.getResponseType());
+				url,
+				httpMethod,
+				new HttpEntity<>(request, httpHeaders),
+				responseType);
 	}
 
-	private static TodoRestTemplate init(
-			@NonNull RestTemplateBuilder builder,
-			@NonNull CloseableHttpClient closeableHttpClient) {
-		RestTemplate restTemplate = builder
-				.requestFactory(() -> new HttpComponentsClientHttpRequestFactory())
-				.build();
+//	private static TodoRestTemplate init(
+//			@NonNull RestTemplateBuilder builder,
+//			@NonNull CloseableHttpClient closeableHttpClient) {
+//		RestTemplate restTemplate = builder
+//				.requestFactory(() -> new HttpComponentsClientHttpRequestFactory())
+//				.build();
+//
+//		return of(restTemplate);
+//	}
 
-		return of(restTemplate);
-	}
+//	public static TodoRestTemplate init(@NonNull RestTemplateBuilder builder) {
+//		return init(builder, HttpClients.createDefault());
+//	}
 
-	public static TodoRestTemplate init(@NonNull RestTemplateBuilder builder) {
-		return init(builder, HttpClients.createDefault());
-	}
-
-	public static TodoRestTemplate initWithProxy(
-			@NonNull RestTemplateBuilder builder,
-			@NonNull TodoProxySettings todoProxySettings) {
-		if (!todoProxySettings.isInitialized()) {
-			throw new RuntimeException(String.format(
-					"Proxy Host or Proxy Port are not set in properties. Proxy Host: %s, Proxy Port: %s",
-					todoProxySettings.getHost(),
-					todoProxySettings.getPort()));
-		}
-
-		CloseableHttpClient httpClient = HttpClientBuilder.create()
-				.setProxy(todoProxySettings.httpHost())
-				.setDefaultCredentialsProvider(todoProxySettings.credentialsProvider())
-				.build();
-
-		return init(builder, httpClient);
-	}
+//	public static TodoRestTemplate initWithProxy(
+//			@NonNull RestTemplateBuilder builder,
+//			@NonNull TodoProxySettings todoProxySettings) {
+//		if (!todoProxySettings.isInitialized()) {
+//			throw new RuntimeException(String.format(
+//					"Proxy Host or Proxy Port are not set in properties. Proxy Host: %s, Proxy Port: %s",
+//					todoProxySettings.getHost(),
+//					todoProxySettings.getPort()));
+//		}
+//
+//		CloseableHttpClient httpClient = HttpClientBuilder.create()
+//				.setProxy(todoProxySettings.httpHost())
+//				.setDefaultCredentialsProvider(todoProxySettings.credentialsProvider())
+//				.build();
+//
+//		return init(builder, httpClient);
+//	}
 
 	private static <I, O> URI uri(
 			@NonNull String baseUrl,

@@ -1,0 +1,8 @@
+GET http://localhost:8080/api/v1/user/list-of-app-users
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYWRAbWFpbC5jb20iLCJpYXQiOjE2Nzc3ODU1NjQsImV4cCI6MTY3Nzc4NzAwNH0.6fIQl8liv_L3YSI867_YP862xKEOMto1aNWJ2o4pkC8"
+}
+
+###
