@@ -2,22 +2,12 @@ package cz.kappega.todo.server.externalapi.authentication;
 
 import cz.kappega.todo.server.externalapi.common.TodoRestRequest;
 import cz.kappega.todo.server.externalapi.common.TodoRestTemplate;
-import cz.kappega.todo.server.user.exchange.RegisterRequest;
-import cz.kappega.todo.server.user.exchange.RegisterResponse;
-import cz.kappega.todo.server.user.exchange.UserRequest;
-import cz.kappega.todo.server.user.exchange.UserResponse;
+import cz.kappega.todo.server.user.exchange.*;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-
-import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
 @Service
@@ -46,6 +36,10 @@ public class AuthenticationService {
 				.build());
 	}
 
+	public void logout(LogoutRequest logoutRequest) {
+	todoRestTemplate.exchange(BASE_URL + "/auth/logout", POST, logoutRequest, void.class).getBody();
+
+	}
 	protected <I, O> O callApiInternal(@NonNull TodoRestRequest<I, O> todoRestRequest) {
 
 		try {
@@ -58,4 +52,5 @@ public class AuthenticationService {
 
 		return null;
 	}
+
 }

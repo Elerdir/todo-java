@@ -4,11 +4,7 @@ import cz.kappega.todo.server.externalapi.authentication.AuthenticationService;
 import cz.kappega.todo.server.user.exchange.*;
 import cz.kappega.todo.server.utils.TodoUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
-import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +21,7 @@ public class UserService {
 	}
 
 	public void logout(LogoutRequest logoutRequest) {
+		authenticationService.logout(logoutRequest);
 	}
 
 	public UserResponse getListOfAppUsers(TokenRequest token) {

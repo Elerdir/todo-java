@@ -20,7 +20,7 @@ export const getAllTodos = () =>
 
 export const addNewTodo = async todo =>
     await fetch(baseURL + "api/v1/todos", {
-            headers: {"Content-type": "application/json"},
+        headers: {"Content-type": "application/json"},
         method: "POST",
         body: JSON.stringify(todo)
         }
@@ -39,7 +39,7 @@ export const editTodo = todo =>
 
 // todo: otestovat, rozchodit
 export const getListOfAppUsers = token =>
-    fetch(baseURL + "api/v1/users/list-of-app-users", {
+    fetch(baseURL + "api/v1/user/list-of-app-users", {
         headers: {"Content-Type": "application/json"},
         method: "GET",
         body: JSON.stringify(token)

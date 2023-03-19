@@ -37,6 +37,7 @@ public class SecurityConfig {
 		configuration.setAllowedHeaders(Arrays.asList(AUTHORIZATION, CACHE_CONTROL, CONTENT_TYPE));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/api/v1/todos", configuration);
+		source.registerCorsConfiguration("/api/v1/user/list-of-app-users", configuration);
 		source.registerCorsConfiguration("/todos", configuration);
 
 		return source;

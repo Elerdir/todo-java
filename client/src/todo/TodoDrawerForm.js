@@ -3,8 +3,7 @@ import {addNewTodo} from "../client";
 import {useState} from 'react';
 import TextArea from "antd/es/input/TextArea";
 import {getEmail} from "../localStorage/LocalStorage";
-
-const {Option} = Select;
+import appUsersList from "../appUsers/AppUsersList";
 
 function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
     const onCLose = () => setShowDrawer(false);
@@ -66,9 +65,9 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
             <Row gutter={16}>
                 <Col span={12}>
                     <Form.Item hidden={true} initialValue={getEmail()}
-                        name="createdBy"
-                        label="CreatedBy"
-                        rules={[{required: true, message: 'Please enter a text'}]}
+                               name="createdBy"
+                               label="CreatedBy"
+                               rules={[{required: true, message: 'Please enter a text'}]}
                     >
                         <input></input>
                     </Form.Item>
@@ -104,9 +103,11 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                         rules={[{required: true, message: 'Please select an assignee'}]}
                     >
                         <Select placeholder="Please select an assignee">
-                            <Option value="MALE">MALE</Option>
-                            <Option value="FEMALE">FEMALE</Option>
-                            <Option value="OTHER">OTHER</Option>
+                            {appUsersList()}
+                            {/*{for(user of getListOfAppUsers())*/}
+                            {/*{*/}
+                            {/*    <Option value={user.email}>{user.fullname}</Option>*/}
+                            {/*}}*/}
                         </Select>
                     </Form.Item>
                 </Col>
@@ -140,7 +141,7 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                 {submitting}
             </Row>
         </Form>
-    </Drawer>
+    </Drawer>;
 }
 
 export default TodoDrawerForm;
