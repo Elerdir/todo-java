@@ -2,7 +2,7 @@ GET http://localhost:8080/api/v1/user/list-of-app-users
 Content-Type: application/json
 
 {
-  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYWRAbWFpbC5jb20iLCJpYXQiOjE2Nzc3ODU1NjQsImV4cCI6MTY3Nzc4NzAwNH0.6fIQl8liv_L3YSI867_YP862xKEOMto1aNWJ2o4pkC8"
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE2ODQxNDQxNTAsImV4cCI6MTY4NDE0NTU5MH0.ieQ4k26lmxyiKxRtAAddB_3zGHcWwY2L9Tk1gIXLv5E"
 }
 
 ###
