@@ -2,10 +2,7 @@ package cz.kappega.todo.server.user;
 
 import cz.kappega.todo.server.user.exchange.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
