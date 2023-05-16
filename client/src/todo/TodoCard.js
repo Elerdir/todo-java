@@ -45,12 +45,17 @@ const edit_Todo = (todo, callback) => {
 	});
 }
 
+const logout = () => {
+
+}
+
 function TodoCard({id, text, description, done, fetchTodos}) {
 	const [showDrawer, setShowDrawer] = useState(false);
 
 	return (
 		<Card sx={{ minWidth: 275 }}>
 			<CardContent>
+				<Button onClick={() => logout()}>Logout</Button>
 				<Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
 					<Chip
 						color={done ? "success" : "error"}

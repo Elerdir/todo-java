@@ -7,7 +7,7 @@ const {Option} = Select;
 
 
 function AppUsersList() {
-	const [appUsers, setAppUsers] =useState([]);
+	const [appUsers, setAppUsers] = useState([]);
 	const [fetching, setFetching] = useState(true);
 
 	const fetchAppUsers = token =>

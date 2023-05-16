@@ -32,7 +32,7 @@ function Login() {
         let jsonResponse = await response.json();
 
         if (response.status === 200) {
-            setToken(jsonResponse.token);
+            setToken('"token": ' + jsonResponse.token);
             setEmail(jsonResponse.email);
             setFirstName(jsonResponse.firstName);
             setLastName(jsonResponse.lastName);
