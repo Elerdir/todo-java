@@ -29,7 +29,6 @@ function Login() {
         });
 
         let jsonResponse = await response.json();
-        const token = "";
 
         if (response.status === 200) {
             console.log(jsonResponse.token);
@@ -59,36 +58,38 @@ function Login() {
                 <br/>
                 <br/>
                 <input sx={{mt: 1}} type="submit"/>
+                <br/>
+                Don't have an account? <button onClick={redirectToRegistrationPage}>Create one.</button>
             </form>
 
 
-            <FormControl>
-                <FormLabel>Email</FormLabel>
-                <Input
-                    // html input attribute
-                    name="email"
-                    type="email"
-                    placeholder="johndoe@email.com"
-                />
-            </FormControl>
-            <FormControl>
-                <FormLabel>Password</FormLabel>
-                <Input
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                />
-            </FormControl>
+            {/*<FormControl>*/}
+            {/*    <FormLabel>Email</FormLabel>*/}
+            {/*    <Input*/}
+            {/*        // html input attribute*/}
+            {/*        name="email"*/}
+            {/*        type="email"*/}
+            {/*        placeholder="johndoe@email.com"*/}
+            {/*    />*/}
+            {/*</FormControl>*/}
+            {/*<FormControl>*/}
+            {/*    <FormLabel>Password</FormLabel>*/}
+            {/*    <Input*/}
+            {/*        name="password"*/}
+            {/*        type="password"*/}
+            {/*        placeholder="password"*/}
+            {/*    />*/}
+            {/*</FormControl>*/}
 
-            <Button sx={{ mt: 1 /* margin top */ }}>
-                Log in
-            </Button>
-            <Typography
-                fontSize="sm"
-                sx={{ alignSelf: 'center' }}
-            >
-                Don't have an account? <button onClick={redirectToRegistrationPage}>Create one.</button>
-            </Typography>
+            {/*<Button>*/}
+            {/*    Log in*/}
+            {/*</Button>*/}
+            {/*<Typography*/}
+            {/*    fontSize="sm"*/}
+            {/*    sx={{ alignSelf: 'center' }}*/}
+            {/*>*/}
+            {/*    Don't have an account? <button onClick={redirectToRegistrationPage}>Create one.</button>*/}
+            {/*</Typography>*/}
 
         </div>
     );
