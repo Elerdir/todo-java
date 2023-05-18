@@ -1,8 +1,9 @@
 import {Drawer, Input, Col, Select, Form, Row, Button} from 'antd';
 import {addNewTodo} from "../client";
 import {useState} from 'react';
-
-const {Option} = Select;
+import TextArea from "antd/es/input/TextArea";
+import {getEmail} from "../localStorage/LocalStorage";
+import appUsersList from "../appUsers/AppUsersList";
 
 function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
     const onCLose = () => setShowDrawer(false);
@@ -63,16 +64,55 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
               hideRequiredMark>
             <Row gutter={16}>
                 <Col span={12}>
-                    <Form.Item
-                        name="text"
-                        label="Text"
-                        rules={[{required: true, message: 'Please enter text'}]}
+                    <Form.Item hidden={true} initialValue={getEmail()}
+                               name="createdBy"
+                               label="CreatedBy"
+                               rules={[{required: true, message: 'Please enter a text'}]}
                     >
-                        <Input placeholder="Please enter text"/>
+                        <input></input>
                     </Form.Item>
                 </Col>
             </Row>
-            // todo předělat na stavy
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item
+                        name="text"
+                        label="Text"
+                        rules={[{required: true, message: 'Please enter a text'}]}
+                    >
+                        <Input placeholder="Please enter a text"/>
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item
+                        name="description"
+                        label="Description"
+                        rules={[{required: true, message: 'Please enter a description'}]}
+                    >
+                        <TextArea placeholder="Please enter a description"/>
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Form.Item
+                        name="assign"
+                        label="Assignee"
+                        rules={[{required: true, message: 'Please select an assignee'}]}
+                    >
+                        <Select placeholder="Please select an assignee">
+                            {appUsersList()}
+                            {/*{for(user of getListOfAppUsers())*/}
+                            {/*{*/}
+                            {/*    <Option value={user.email}>{user.fullname}</Option>*/}
+                            {/*}}*/}
+                        </Select>
+                    </Form.Item>
+                </Col>
+            </Row>
+            {/* todo předělat na stavy*/}
             {/*<Row gutter={16}>*/}
             {/*    <Col span={12}>*/}
             {/*        <Form.Item*/}
@@ -101,7 +141,7 @@ function TodoDrawerForm({showDrawer, setShowDrawer, fetchTodos}) {
                 {submitting}
             </Row>
         </Form>
-    </Drawer>
+    </Drawer>;
 }
 
 export default TodoDrawerForm;

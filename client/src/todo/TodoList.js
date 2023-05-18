@@ -14,7 +14,6 @@ function TodoList() {
 		getAllTodos()
 			.then(res => res.json())
 			.then(data => {
-				console.log("jdflkhasdlf", data);
 				setTodos(data);
 			}).catch(err => {
 			console.log(err.response);
@@ -50,7 +49,7 @@ function TodoList() {
 				 {/*<Empty/>*/}
 				 {todos && todos.length > 0 ? todos.map(t => {
 				     return <div>
-				         <TodoCard id={t.id} text={t.text} done={t.done} fetchTodos={fetchTodos}/>
+				         <TodoCard id={t.id} text={t.text} description={t.description} done={t.done} fetchTodos={fetchTodos}/>
 				         {/*<TodoCard {...t}>*/}
 				         {/*<Button variant="outlined" startIcon={<DeleteIcon />}>*/}
 				         {/*    Delete*/}

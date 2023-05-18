@@ -17,7 +17,6 @@ const removeTodo = (todoId, callback) => {
 	deleteTodo(todoId).then(() => {
 		// successNotification("Student deleted", `Student with ${todoId} was deleted`);
 		// console.log(callback);
-		console.log(callback);
 		callback();
 	}).catch(err => {
 		// err.response.json().then(res => {
@@ -34,7 +33,6 @@ const edit_Todo = (todo, callback) => {
 	editTodo(todo).then(() => {
 		// successNotification("Student deleted", `Student with ${todoId} was deleted`);
 		// console.log(callback);
-		console.log(callback);
 		callback();
 	}).catch(err => {
 		// err.response.json().then(res => {
@@ -47,12 +45,17 @@ const edit_Todo = (todo, callback) => {
 	});
 }
 
-function TodoCard({id, text, done, fetchTodos}) {
+const logout = () => {
+
+}
+
+function TodoCard({id, text, description, done, fetchTodos}) {
 	const [showDrawer, setShowDrawer] = useState(false);
 
 	return (
 		<Card sx={{ minWidth: 275 }}>
 			<CardContent>
+				<Button onClick={() => logout()}>Logout</Button>
 				<Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
 					<Chip
 						color={done ? "success" : "error"}
@@ -61,6 +64,9 @@ function TodoCard({id, text, done, fetchTodos}) {
 				</Typography>
 				<Typography sx={{ fontSize: 25 }} color="text.secondary" gutterBottom>
 					{text}
+				</Typography>
+				<Typography sx={{ fontSize: 25 }} color="text.secondary" gutterBottom>
+					{description}
 				</Typography>
 			</CardContent>
 			<Stack direction="row" spacing={2}>
